@@ -4,6 +4,7 @@ import cv2 as cv
 frames_path = os.path.join(os.getcwd(), "frames")
 silhouettes_path = os.path.join(os.getcwd(), "silhouettes")
 
+i = 0
 for person in os.listdir(frames_path):
     os.mkdir(os.path.join(silhouettes_path, person))
     categories = os.listdir(os.path.join(frames_path, person))
@@ -12,7 +13,8 @@ for person in os.listdir(frames_path):
         os.mkdir(os.path.join(silhouettes_path, person, category))
         angles = os.listdir(os.path.join(frames_path, person, category))
         for angle in angles:
-            print(person, category, angle)
+            i += 1
+            print(i, person, category, angle)
             os.mkdir(os.path.join(silhouettes_path, person, category, angle))
             frames = os.listdir(os.path.join(frames_path, person, category, angle))
             for frame in frames:

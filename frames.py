@@ -1,13 +1,14 @@
 import os
 import cv2 as cv
 
-dataset_path = os.path.join(os.getcwd(), "dataset")
+dataset_path = os.path.join(os.getcwd(), "casia-b")
 frames_path = os.path.join(os.getcwd(), "frames")
 
 videos = os.listdir(dataset_path)
 
 records = {}
-for video in videos:
+for i, video in enumerate(videos):
+    print(i, video)
     person = video[0:3]
     if person not in list(records.keys()):
         records[person] = {}
@@ -40,4 +41,3 @@ for video in videos:
             print("Error: Invalid frame size.")
             break
     capture_video.release()
-
