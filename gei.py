@@ -28,7 +28,7 @@ def image_extract(img, newsize):
     x_s = x_c - newsize[1] // 2
     x_e = x_c + newsize[1] // 2
     img = img[
-        y_s:y_e, x_s if x_s > 0 else 0 : x_e if x_e < img.shape[1] else img.shape[1]
+        y_s:y_e, x_s if x_s > 0 else 0: x_e if x_e < img.shape[1] else img.shape[1]
     ]
     return cv.resize(img, newsize)
 
@@ -40,11 +40,13 @@ for person in os.listdir(silhouettes_path):
         for angle in os.listdir(os.path.join(silhouettes_path, person, category)):
             i += 1
             print(i, person, category, angle)
-            angle_path = os.path.join(silhouettes_path, person, category, angle)
+            angle_path = os.path.join(
+                silhouettes_path, person, category, angle)
             frames = [
                 cv.imread(os.path.join(angle_path, frame), 0)
                 for frame in os.listdir(angle_path)
             ]
             frames = [image_extract(frame, (128, 128)) for frame in frames]
             gei = np.mean(frames, axis=0).astype(np.uint8)
-            cv.imwrite(f"{os.path.join(gei_path, person)}/{category}-{angle}.jpg", gei)
+            cv.imwrite(
+                f"{os.path.join(gei_path, person)}/{category}-{angle}.png", gei)
