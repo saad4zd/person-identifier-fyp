@@ -35,7 +35,7 @@ for i, video in enumerate(videos):
             print("Error: Could not read frame.")
             break
         if frame.shape[0] > 0 and frame.shape[1] > 0:
-            cv.imwrite(f"{angle_dir}/{i}.jpg", frame)
+            cv.imwrite(f"{angle_dir}/{i}.png", frame)
             i += 1
         else:
             print("Error: Invalid frame size.")

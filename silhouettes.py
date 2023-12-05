@@ -22,16 +22,17 @@ for person in os.listdir(frames_path):
                     os.path.join(frames_path, person, category, angle, frame)
                 )
                 bkgrd = cv.imread(
-                    os.path.join(frames_path, person, "bkgrd", angle, "5.jpg")
+                    os.path.join(frames_path, person, "bkgrd", angle, "5.png")
                 )
-                # img = cv.fastNlMeansDenoising(img, None, 5, 7, 21)
-                # bkgrd = cv.fastNlMeansDenoising(bkgrd, None, 5, 7, 21)
                 img_gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+                img_gray = cv.GaussianBlur(img_gray, (3, 3), 0)
                 bkgrd_gray = cv.cvtColor(bkgrd, cv.COLOR_BGR2GRAY)
+                bkgrd_gray = cv.GaussianBlur(bkgrd_gray, (3, 3), 0)
                 isolated_person = cv.absdiff(img_gray, bkgrd_gray)
                 _, binary_img = cv.threshold(
                     isolated_person, 35, 255, cv.THRESH_BINARY + cv.THRESH_OTSU
                 )
+                binary_img = cv.dilate(binary_img, None, iterations=2)
                 cv.imwrite(
                     f"{os.path.join(silhouettes_path, person, category, angle)}/{frame}",
                     binary_img,
