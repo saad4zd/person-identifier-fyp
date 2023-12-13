@@ -1,8 +1,8 @@
 import os
 import cv2 as cv
 
-dataset_path = os.path.join(os.getcwd(), "casia-b")
-frames_path = os.path.join(os.getcwd(), "frames")
+dataset_path = os.path.join(os.getcwd(), "1 - Casia-B")
+frames_path = os.path.join(os.getcwd(), "2 - Frames")
 
 videos = os.listdir(dataset_path)
 

@@ -1,8 +1,8 @@
 import os
 import cv2 as cv
 
-frames_path = os.path.join(os.getcwd(), "frames")
-silhouettes_path = os.path.join(os.getcwd(), "silhouettes")
+frames_path = os.path.join(os.getcwd(), "2 - Frames")
+silhouettes_path = os.path.join(os.getcwd(), "3 - Silhouettes")
 
 i = 0
 for person in os.listdir(frames_path):

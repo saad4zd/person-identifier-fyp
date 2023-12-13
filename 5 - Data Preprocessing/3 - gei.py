@@ -1,10 +1,9 @@
 import os
 import cv2 as cv
 import numpy as np
-import matplotlib.pyplot as plt
 
-silhouettes_path = os.path.join(os.getcwd(), "silhouettes")
-gei_path = os.path.join(os.getcwd(), "gei")
+silhouettes_path = os.path.join(os.getcwd(), "3 - Silhouettes")
+gei_path = os.path.join(os.getcwd(), "5 - Gait Energy Images")
 
 
 def mass_center(img, is_round=True):
@@ -42,9 +41,12 @@ for person in os.listdir(silhouettes_path):
             print(i, person, category, angle)
             angle_path = os.path.join(
                 silhouettes_path, person, category, angle)
+            silhouettes = os.listdir(angle_path)
+            if len(silhouettes) == 0:
+                break
             frames = [
                 cv.imread(os.path.join(angle_path, frame), 0)
-                for frame in os.listdir(angle_path)
+                for frame in silhouettes
             ]
             frames = [image_extract(frame, (128, 128)) for frame in frames]
             gei = np.mean(frames, axis=0).astype(np.uint8)
