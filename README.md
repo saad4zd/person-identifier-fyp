@@ -1,6 +1,6 @@
-# Gait Recognition Project
+# Person Identifier FYP
 
-This repository contains the code for a gait recognition project, which involves identifying individuals based on their walking patterns. The project is an R&D effort and does not include collaborators.
+This repository contains the code for a person identifier project, which involves identifying individuals based on their walking patterns. The project is an R&D effort and does not include collaborators.
 
 ## Data Preprocessing
 
