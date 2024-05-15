@@ -24,7 +24,6 @@ The following pre-trained models were fine-tuned on the dataset:
 - ResNet50
 - InceptionV3
 - MobileNetV2
-- MobileNetV2
 - EfficientNetB7
 
 ## Models Architecture Code
