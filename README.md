@@ -20,20 +20,21 @@ Gait energy images (GEIs) are generated from the normalized silhouettes.
 
 The following pre-trained models were fine-tuned on the dataset:
 
+- VGG16
 - ResNet50
-- EfficientNetB7
 - InceptionV3
 - MobileNetV2
-- VGG16
+- MobileNetV2
+- EfficientNetB7
 
 ## Models Architecture Code
 
 The following models were coded from scratch and trained on the dataset without fine-tuning:
 
-- ResNet50
 - ResNet18
-- InceptionV3
+- ResNet50
 - MobileNetV2
+- InceptionV3
 - EfficientNetB0
 - GaitNet (Proposed Model)
 
